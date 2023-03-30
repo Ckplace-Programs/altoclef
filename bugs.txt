@@ -1,0 +1,54 @@
+bug one:
+	Description:
+		bot fails to loot wood from furnace.
+
+	solution:
+		only ever use coal. No point in doing other shit
+
+bug two:
+    Description:
+        bot fails to check food counts properly
+
+    Solution:
+        double check food tree and gamer food task
+
+bug three:
+    Description:
+        Although unlikely, bot gets stuck trying to cook food if it has
+        a full stack of food in its hand
+
+    Solution:
+        this task man...
+
+bug four:
+    Description:
+        Hard stuck if the bot has a full inventory.
+
+    Solution:
+        Beds should be gotten last
+
+optimization one:
+    Description:
+        bot fails to place a furnace down if it has two. It always prefers to go back...
+        this is true even if the furnace is super far away.
+
+        Solution:
+            If the furnace is more than 50 blocks, the bot
+            should just make a new one
+
+optimiation two:
+    Description:
+        bot should probably get a bed first thing after tools because
+        it cannot survive the night easily
+
+    Solution:
+        if sheep are ever nearby and we dont have a bed, get one asap.
+
+optimization three:
+    Description:
+        bot doesn't cook properly. Instead, it cooks everything even if
+        it has more than enough
+
+    Solution:
+        figure out what is wrong with food chain
+
