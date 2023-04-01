@@ -32,6 +32,7 @@ import adris.altoclef.tasks.stupid.BeeMovieTask;
 import adris.altoclef.tasks.stupid.ReplaceBlocksTask;
 import adris.altoclef.tasks.stupid.SCP173Task;
 import adris.altoclef.tasks.stupid.TerminatorTask;
+import adris.altoclef.tasks.tests.UnistckTestTask;
 import adris.altoclef.util.*;
 import adris.altoclef.util.helpers.WorldHelper;
 import net.minecraft.block.Block;
@@ -270,6 +271,9 @@ public class Playground {
                 break;
             case "flint":
                 mod.runUserTask(new CollectFlintTask(5));
+                break;
+            case "unstick":
+                mod.runUserTask(new UnistckTestTask());
                 break;
             case "unobtainable":
                 String fname = "unobtainables.txt";

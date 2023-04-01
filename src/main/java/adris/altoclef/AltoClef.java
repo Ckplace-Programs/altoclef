@@ -62,6 +62,8 @@ public class AltoClef implements ModInitializer {
     private MLGBucketFallChain _mlgBucketChain;
     // Trackers
     private ItemStorageTracker _storageTracker;
+
+    private UniversalUnstickChain _universalUnstickChain;
     private ContainerSubTracker _containerSubTracker;
     private EntityTracker _entityTracker;
     private BlockTracker _blockTracker;
@@ -107,6 +109,7 @@ public class AltoClef implements ModInitializer {
         // Task chains
         _userTaskChain = new UserTaskChain(_taskRunner);
         _mobDefenseChain = new MobDefenseChain(_taskRunner);
+        _universalUnstickChain = new UniversalUnstickChain(_taskRunner);
         new DeathMenuChain(_taskRunner);
         new PlayerInteractionFixChain(_taskRunner);
         _mlgBucketChain = new MLGBucketFallChain(_taskRunner);
@@ -270,6 +273,7 @@ public class AltoClef implements ModInitializer {
         return _userTaskChain;
     }
 
+    public UniversalUnstickChain getUniversalUnstickChain(){ return _universalUnstickChain; }
     /**
      * Controls bot behaviours, like whether to temporarily "protect" certain blocks or items
      */

@@ -2,6 +2,7 @@ package adris.altoclef.tasksystem;
 
 
 import adris.altoclef.tasks.UnstickStrategy;
+import adris.altoclef.util.time.TimerGame;
 
 /**
  * This interface is designed to inform the Universal Unstick chain that the current running task
@@ -14,5 +15,6 @@ public interface IUnstickable {
           that task requires unstick assistance.
      */
     public UnstickStrategy getUnstickStrategy();
+    public TimerGame getStickyTimer();
 
 }
