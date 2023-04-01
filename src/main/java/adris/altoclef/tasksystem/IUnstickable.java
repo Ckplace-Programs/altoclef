@@ -17,4 +17,6 @@ public interface IUnstickable {
     public UnstickStrategy getUnstickStrategy();
     public TimerGame getStickyTimer();
 
+    public boolean initialized();
+
 }

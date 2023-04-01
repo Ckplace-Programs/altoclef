@@ -39,12 +39,12 @@ public abstract class UnstickStrategy {
     private Task defaultEscapeSequence() {
         //execute first task of escape sequence
         int taskIndex=0;
-        while(escapeSequence[taskIndex]==null){
-            if(taskIndex > escapeSequence.length)
-                return null;
-            else
-                taskIndex++;
-        }
+//        while(escapeSequence[taskIndex]==null){
+//            if(taskIndex > escapeSequence.length)
+//                return null;
+//            else
+//                taskIndex++;
+//        }
         return escapeSequence[taskIndex];
         /* TODO This will never work consistenly. we need to write this in a way that will
             actually iterate through the tasks as they complete. Unstick chain should help

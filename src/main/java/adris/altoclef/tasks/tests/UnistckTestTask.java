@@ -13,12 +13,14 @@ import org.lwjgl.system.CallbackI;
 
 public class UnistckTestTask extends Task implements IUnstickable {
 
-    private final double stickytime = 10;
+    private final double stickytime = 20;
+    private boolean init = false;
     private final TimerGame unstickTimer = new TimerGame(stickytime);
 
     @Override
     protected void onStart(AltoClef mod) {
         unstickTimer.reset();
+        init = true;
     }
 
     @Override
@@ -28,12 +30,16 @@ public class UnistckTestTask extends Task implements IUnstickable {
 
     @Override
     protected void onStop(AltoClef mod, Task interruptTask) {
-        unstickTimer.reset();
     }
 
     @Override
     protected boolean isEqual(Task other) {
         return other instanceof UnistckTestTask;
+    }
+
+    @Override
+    public boolean isFinished(AltoClef mod) {
+        return false;
     }
 
     @Override
@@ -60,6 +66,11 @@ public class UnistckTestTask extends Task implements IUnstickable {
     @Override
     public TimerGame getStickyTimer() {
         return unstickTimer;
+    }
+
+    @Override
+    public boolean initialized() {
+        return init;
     }
 
     public void resetStickyTier(){

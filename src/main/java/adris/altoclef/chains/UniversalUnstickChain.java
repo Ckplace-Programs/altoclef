@@ -28,7 +28,8 @@ public class UniversalUnstickChain extends SingleTaskChain {
 
     @Override
     public void onInterrupt(AltoClef mod, TaskChain other) {
-
+        Optional<IUnstickable> _curTask = Optional.ofNullable(getStickyClass(mod));
+        _curTask.ifPresent(p_iUnstickable -> p_iUnstickable.getStickyTimer().reset());
     }
 
     @Override
@@ -36,18 +37,7 @@ public class UniversalUnstickChain extends SingleTaskChain {
         if(_stuck){
             runUnstickManuvers(mod,_unstickStrats);
         }
-        /*
-        UNSTICK STRATEGIES
 
-        different situations call for different ways to unstick.
-
-        Let `SA` be a situation we are stuck in and let `SSA` be a strategy that can unstick
-        us from `SA`.
-
-        IF player is in SA
-            implementStrategy(SSA)
-         */
-        //TODO this may not be the place for this.
     }
 
     @Override
@@ -59,7 +49,7 @@ public class UniversalUnstickChain extends SingleTaskChain {
         if(_curTask.isPresent()){
             IUnstickable running = _curTask.get();
             _unstickStrats = running.getUnstickStrategy();
-            if(running.getStickyTimer().elapsed()) {
+            if(running.getStickyTimer().elapsed() && running.initialized()) {
                 _stuck = true;
                 return Float.POSITIVE_INFINITY;
             }
@@ -75,10 +65,10 @@ public class UniversalUnstickChain extends SingleTaskChain {
     }
 
     public void runUnstickManuvers(AltoClef mod, UnstickStrategy unstick){
-       // mod.getTaskRunner().enable();
+        mod.getTaskRunner().enable();
         if(unstick.escape()==null){
             _stuck = false;
-        //mod.getTaskRunner().disable();
+        mod.getTaskRunner().disable();
         }else {
             setTask(unstick.escape()); //TODO should get stuck in a loop here. That's ok for now
         }
