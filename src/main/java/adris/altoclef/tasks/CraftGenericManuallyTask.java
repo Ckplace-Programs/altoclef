@@ -37,6 +37,11 @@ public class CraftGenericManuallyTask extends Task implements ITaskUsesCraftingG
 
     }
 
+    /**
+     *  @param {string} name - The name of the recipe.
+     * @param mod
+     * @return
+     */
     @Override
     protected Task onTick(AltoClef mod) {
 
@@ -102,7 +107,6 @@ public class CraftGenericManuallyTask extends Task implements ITaskUsesCraftingG
                 }
             }
         }
-
         // Ensure our cursor is empty/can receive our item
         ItemStack cursor = StorageHelper.getItemStackInCursorSlot();
         if (!ItemHelper.canStackTogether(StorageHelper.getItemStackInSlot(outputSlot), cursor)) {

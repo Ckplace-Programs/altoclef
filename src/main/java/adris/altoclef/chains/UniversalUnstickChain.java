@@ -34,16 +34,13 @@ public class UniversalUnstickChain extends SingleTaskChain {
 
     @Override
     protected void onTick(AltoClef mod) {
-        if(_stuck){
-            runUnstickManuvers(mod,_unstickStrats);
-        }
-
     }
 
     @Override
     public float getPriority(AltoClef mod) {
         Optional<IUnstickable> _curTask = Optional.ofNullable(getStickyClass(mod));
         if(_stuck){
+            runUnstickManuvers(mod,_unstickStrats);
             return Float.POSITIVE_INFINITY;
         }
         if(_curTask.isPresent()){
@@ -66,7 +63,7 @@ public class UniversalUnstickChain extends SingleTaskChain {
 
     public void runUnstickManuvers(AltoClef mod, UnstickStrategy unstick){
         mod.getTaskRunner().enable();
-        if(unstick.escape()==null){
+        if(unstick.escape()==null){ //TODO How dis null?
             _stuck = false;
         mod.getTaskRunner().disable();
         }else {
