@@ -29,7 +29,7 @@ public abstract class UnstickStrategy {
     public abstract Task userDefinedEscape();
 
     public Task escape(){
-        if(escapeParam){
+        if(!escapeParam){
             return defaultEscapeSequence();
         }else{
             return userDefinedEscape();

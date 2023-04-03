@@ -62,10 +62,8 @@ public class UniversalUnstickChain extends SingleTaskChain {
     }
 
     public void runUnstickManuvers(AltoClef mod, UnstickStrategy unstick){
-        mod.getTaskRunner().enable();
         if(unstick.escape()==null){ //TODO How dis null?
             _stuck = false;
-        mod.getTaskRunner().disable();
         }else {
             setTask(unstick.escape()); //TODO should get stuck in a loop here. That's ok for now
         }
